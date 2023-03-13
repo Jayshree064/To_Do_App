@@ -14,15 +14,29 @@ public class todoDao {
 	@Autowired
 	HibernateTemplate hibernateTemplate;
 	
+//	create
 	@Transactional
-	public int save(Todo t) {
-		Integer i = (Integer)this.hibernateTemplate.save(t);
-		return i;
+	public void save(Todo t) {
+		this.hibernateTemplate.saveOrUpdate(t);
+//		Integer i = (Integer)this.hibernateTemplate.save(t);
+//		return i;
 	}
 	
+//	get all data
 	public List<Todo> getAll(){
 		List<Todo> todos = this.hibernateTemplate.loadAll(Todo.class);
 		return todos;
-		
+	}
+
+//	delete 
+	@Transactional
+	public void deletetodo(int id) {
+		Todo t = this.hibernateTemplate.load(Todo.class, id);
+		this.hibernateTemplate.delete(t);
+	}
+	
+//	get single todo
+	public Todo getTodo(int todoId) {
+		return this.hibernateTemplate.get(Todo.class, todoId);
 	}
 }

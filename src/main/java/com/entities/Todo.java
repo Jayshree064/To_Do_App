@@ -15,18 +15,12 @@ public class Todo {
 	private String todoTitle;
 	private String description;
 	private Date entryDate;
-	public Todo(String todoTitle, String description, Date entryDate) {
-		super();
-		this.todoTitle = todoTitle;
-		this.description = description;
-		this.entryDate = entryDate;
+	public int getTodoId() {
+		return todoId;
 	}
-	
-	public Todo() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setTodoId(int todoId) {
+		this.todoId = todoId;
 	}
-
 	public String getTodoTitle() {
 		return todoTitle;
 	}
@@ -45,11 +39,23 @@ public class Todo {
 	public void setEntryDate(Date entryDate) {
 		this.entryDate = entryDate;
 	}
+	public Todo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Todo(int todoId, String todoTitle, String description, Date entryDate) {
+		super();
+		this.todoId = todoId;
+		this.todoTitle = todoTitle;
+		this.description = description;
+		this.entryDate = entryDate;
+	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return this.getTodoTitle()+ ":" + this.getDescription();
+		return "Todo [todoId=" + todoId + ", todoTitle=" + todoTitle + ", description=" + description + ", entryDate="
+				+ entryDate + "]";
 	}
+	
 	
 	
 }
